@@ -1,4 +1,5 @@
-import { Component, Prop, h, Element, State } from '@stencil/core';
+import { Component, h, Element, State } from '@stencil/core';
+import 'core-js';
 import embed, * as vegaEmbed from 'vega-embed';
 
 @Component({
@@ -8,7 +9,7 @@ import embed, * as vegaEmbed from 'vega-embed';
 })
 export class MyComponent {
   @Element() element: HTMLElement;
-  @State() barData:any = {
+  @State() barData: any = {
     "$schema": "https://vega.github.io/schema/vega/v5.json",
     "width": 400,
     "height": 200,
@@ -18,14 +19,14 @@ export class MyComponent {
       {
         "name": "table",
         "values": [
-          {"category": "A", "amount": 28},
-          {"category": "B", "amount": 55},
-          {"category": "C", "amount": 43},
-          {"category": "D", "amount": 91},
-          {"category": "E", "amount": 81},
-          {"category": "F", "amount": 53},
-          {"category": "G", "amount": 19},
-          {"category": "H", "amount": 87}
+          { "category": "A", "amount": 28 },
+          { "category": "B", "amount": 55 },
+          { "category": "C", "amount": 43 },
+          { "category": "D", "amount": 91 },
+          { "category": "E", "amount": 81 },
+          { "category": "F", "amount": 53 },
+          { "category": "G", "amount": 19 },
+          { "category": "H", "amount": 87 }
         ]
       }
     ],
@@ -35,8 +36,8 @@ export class MyComponent {
         "name": "tooltip",
         "value": {},
         "on": [
-          {"events": "rect:mouseover", "update": "datum"},
-          {"events": "rect:mouseout",  "update": "{}"}
+          { "events": "rect:mouseover", "update": "datum" },
+          { "events": "rect:mouseout", "update": "{}" }
         ]
       }
     ],
@@ -45,14 +46,14 @@ export class MyComponent {
       {
         "name": "xscale",
         "type": "band",
-        "domain": {"data": "table", "field": "category"},
+        "domain": { "data": "table", "field": "category" },
         "range": "width",
         "padding": 0.05,
         "round": true
       },
       {
         "name": "yscale",
-        "domain": {"data": "table", "field": "amount"},
+        "domain": { "data": "table", "field": "amount" },
         "nice": true,
         "range": "height"
       }
@@ -66,19 +67,19 @@ export class MyComponent {
     "marks": [
       {
         "type": "rect",
-        "from": {"data":"table"},
+        "from": { "data": "table" },
         "encode": {
           "enter": {
-            "x": {"scale": "xscale", "field": "category"},
-            "width": {"scale": "xscale", "band": 1},
-            "y": {"scale": "yscale", "field": "amount"},
-            "y2": {"scale": "yscale", "value": 0}
+            "x": { "scale": "xscale", "field": "category" },
+            "width": { "scale": "xscale", "band": 1 },
+            "y": { "scale": "yscale", "field": "amount" },
+            "y2": { "scale": "yscale", "value": 0 }
           },
           "update": {
-            "fill": {"value": "steelblue"}
+            "fill": { "value": "steelblue" }
           },
           "hover": {
-            "fill": {"value": "red"}
+            "fill": { "value": "red" }
           }
         }
       },
@@ -86,30 +87,30 @@ export class MyComponent {
         "type": "text",
         "encode": {
           "enter": {
-            "align": {"value": "center"},
-            "baseline": {"value": "bottom"},
-            "fill": {"value": "#333"}
+            "align": { "value": "center" },
+            "baseline": { "value": "bottom" },
+            "fill": { "value": "#333" }
           },
           "update": {
-            "x": {"scale": "xscale", "signal": "tooltip.category", "band": 0.5},
-            "y": {"scale": "yscale", "signal": "tooltip.amount", "offset": -2},
-            "text": {"signal": "tooltip.amount"},
+            "x": { "scale": "xscale", "signal": "tooltip.category", "band": 0.5 },
+            "y": { "scale": "yscale", "signal": "tooltip.amount", "offset": -2 },
+            "text": { "signal": "tooltip.amount" },
             "fillOpacity": [
-              {"test": "datum === tooltip", "value": 0},
-              {"value": 1}
+              { "test": "datum === tooltip", "value": 0 },
+              { "value": 1 }
             ]
           }
         }
       }
     ]
   }
-  componentDidLoad(){
+  componentDidLoad() {
     const bar: HTMLElement = this.element.shadowRoot.querySelector('#bar');
-    embed(bar, this.barData).then((result: vegaEmbed.Result)=>result.view);
+    embed(bar, this.barData).then((result: vegaEmbed.Result) => result.view);
   }
   render() {
     return <div>
-        <div id ="bar"></div>
+      <div id="bar"></div>
     </div>;
   }
 }
