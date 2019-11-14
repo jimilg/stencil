@@ -2,12 +2,12 @@
 # yarn lockfile v1
 
 
-"@stencil/core@^1.7.5":
-  version "1.7.5"
-  resolved "https://artifacts.mastercard.int:443/artifactory/api/npm/npm-all/@stencil/core/-/core-1.7.5.tgz#2b8c6b5306b267d344e9cbd57fc0f87881b272c7"
-  integrity sha1-K4xrUwayZ9NE6cvVf8D4eIGycsc=
+"@stencil/core@1.3.3":
+  version "1.3.3"
+  resolved "https://artifacts.mastercard.int:443/artifactory/api/npm/npm-all/@stencil/core/-/core-1.3.3.tgz#755223d315ecc4a17e3c220c2b44aaae59aec690"
+  integrity sha1-dVIj0xXsxKF+PCIMK0SqrlmuxpA=
   dependencies:
-    typescript "3.6.3"
+    typescript "3.5.3"
 
 "@types/clone@~0.1.30":
   version "0.1.30"
@@ -345,10 +345,10 @@ tslib@~1.10.0:
   resolved "https://artifacts.mastercard.int:443/artifactory/api/npm/npm-all/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
   integrity sha1-w8GflZc/sKYpc/sJ2Q2WHuQ+XIo=
 
-typescript@3.6.3:
-  version "3.6.3"
-  resolved "https://artifacts.mastercard.int:443/artifactory/api/npm/npm-all/typescript/-/typescript-3.6.3.tgz#fea942fabb20f7e1ca7164ff626f1a9f3f70b4da"
-  integrity sha1-/qlC+rsg9+HKcWT/Ym8anz9wtNo=
+typescript@3.5.3:
+  version "3.5.3"
+  resolved "https://artifacts.mastercard.int:443/artifactory/api/npm/npm-all/typescript/-/typescript-3.5.3.tgz#c830f657f93f1ea846819e929092f5fe5983e977"
+  integrity sha1-yDD2V/k/HqhGgZ6SkJL1/lmD6Xc=
 
 vega-canvas@^1.2.1:
   version "1.2.1"
